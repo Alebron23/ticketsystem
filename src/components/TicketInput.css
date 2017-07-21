@@ -1,0 +1,43 @@
+.App-header {
+	padding-left: 25%;
+}
+
+
+.customerInput{
+	width: 25%;
+}
+
+
+
+.form-control{
+	width: 250px;
+
+}
+
+.form-group {
+	display: inline;
+}
+
+
+.btn-email-field {
+	border-radius: 20px;
+	position: absolute;
+	left: 280px;
+	/*top:20px;*/
+
+}
+
+.example-datepicker{
+	position: relative;
+	width   : 200px;
+	/*right: 100px;*/
+}
+
+.input-group{
+
+}
+
+/*.email-input-field{
+	position: relative;
+	top: 10px;
+}*/

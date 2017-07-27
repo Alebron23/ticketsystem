@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {FormGroup, FormControl, ControlLabel, Form, Col, Button} from 'react-bootstrap';
+import { FormGroup, FormControl, ControlLabel, Form, Col, Button } from 'react-bootstrap';
 import DatePicker from 'react-bootstrap-date-picker';
 import './TicketInput.css';
 
@@ -9,14 +9,22 @@ class TicketInput extends Component {
     super(props);
 
     this.state = { 
-      ticketNumber: 0,
-      customer: '',
-      customerEmail: [''],
-      date: new Date().toISOString()
+      ticketNumber      : 0,
+      customerName      : '',
+      companyName       : '',
+      customerEmail     : [''],
+      machineInquired   : '',
+      machineRF         : '',
+      machineDescription: '',
+      inquiryComments   : '',
+      amountBought      : 0,
+      shippingNumber    : '',
+      netBought         : 0,
+      date              : new Date().toISOString()
     }
 
     this.incrementTicket        = this.incrementTicket.bind(this);
-    this.handleInputCustomer    = this.handleInputCustomer.bind(this);
+    this.handleAddCompany       = this.handleAddCompany.bind(this);
     this.handleAddEmailField    = this.handleAddEmailField.bind(this);
     this.handleDeleteEmailField = this.handleDeleteEmailField.bind(this);
     this.handleCustomerEmail    = this.handleCustomerEmail.bind(this);
@@ -29,12 +37,12 @@ class TicketInput extends Component {
     })
   }
 
-  handleInputCustomer(event) {
+  handleAddCompany(event) {
     
-    console.log(this.state.customer);
+    console.log(this.state.companyName);
 
     this.setState({
-      customer: event.target.value
+      companyName: event.target.value
     })
     
   }
@@ -77,7 +85,7 @@ class TicketInput extends Component {
 
   render() {
     return (
-        <FormInstance handleCustomerCompany={this.handleCustomerCompany} handleCustomerEmail={this.handleCustomerEmail} handleAddEmail={this.handleAddEmailField} handleDeleteEmail={this.handleDeleteEmailField} {...this.state} increment={this.incrementTicket} />
+        <FormInstance handleCompanyName={this.handleCompanyName} handleCustomerEmail={this.handleCustomerEmail} handleAddEmail={this.handleAddEmailField} handleDeleteEmail={this.handleDeleteEmailField} {...this.state} increment={this.incrementTicket} />
     );
   }
 }
@@ -143,13 +151,23 @@ const FormInstance = (props) => {
             </Col>   
           </FormGroup>
 
-         <FormGroup>
+          <FormGroup>
             <Col componentClass={ControlLabel} sm={2}>
-              Customer Company:
+              Customer Name:
             </Col>
 
             <Col sm={4}>
-              <FormControl type="text" placeholder="Enter Company" onChange={props.handleCustomerCompany}/>
+              <FormControl type="text" placeholder="Enter Customer Name"/>
+            </Col>
+         </FormGroup>
+
+         <FormGroup>
+            <Col componentClass={ControlLabel} sm={2}>
+              Company Name:
+            </Col>
+
+            <Col sm={4}>
+              <FormControl type="text" placeholder="Enter Company Name" />
             </Col>
          </FormGroup>
 
@@ -168,6 +186,76 @@ const FormInstance = (props) => {
             </Col>
           </FormGroup>
 
+         <FormGroup>
+            <Col componentClass={ControlLabel} sm={2}>
+              Machine Inquired About:
+            </Col>
+
+            <Col sm={5}>
+              <FormControl type="text" placeholder="Enter Machine Inquired" />
+            </Col>
+         </FormGroup>
+
+         <FormGroup>
+            <Col componentClass={ControlLabel} sm={2}>
+              Machine Reference Number:
+            </Col>
+
+            <Col sm={5}>
+              <FormControl type="text" placeholder="Enter Machine Reference Number" />
+            </Col>
+         </FormGroup>
+
+           <FormGroup>
+            <Col componentClass={ControlLabel} sm={2}>
+              Machine Description:
+            </Col>
+           
+            <Col sm={6}>
+              <FormControl componentClass="textarea" placeholder="Enter Machine Description" />
+            </Col>
+          </FormGroup>
+
+          <FormGroup>
+            <Col componentClass={ControlLabel} sm={2}>
+              Inquiry Comments:
+            </Col>
+           
+            <Col sm={6}>
+              <FormControl componentClass="textarea" placeholder="Enter Inquiry Comments" />
+            </Col>
+          </FormGroup>
+
+          <FormGroup>
+            <Col componentClass={ControlLabel} sm={2}>
+              Amount Bought:
+            </Col>
+
+            <Col sm={5}>
+              <FormControl type="text" placeholder="Enter Amount Bought" />
+            </Col>
+         </FormGroup>
+
+         <FormGroup>
+            <Col componentClass={ControlLabel} sm={2}>
+              Shipping Number:
+            </Col>
+
+            <Col sm={5}>
+              <FormControl type="text" placeholder="Enter Shipping" />
+            </Col>
+        </FormGroup>
+
+        <FormGroup> 
+            <Col componentClass={ControlLabel} sm={2}>
+              Net Bought:
+            </Col>
+
+            <Col sm={5}>
+              <FormControl type="text" placeholder="Enter Net Bought" />
+            </Col>
+        </FormGroup>
+
           <FormGroup>
             <Col componentClass={ControlLabel} sm={2}>
               Date:
@@ -177,18 +265,6 @@ const FormInstance = (props) => {
               <DatePicker className="example-datepicker" value={props.date} onChange={props.handleDate} />
             </Col>
           </FormGroup>
-
-          <FormGroup>
-            <Col componentClass={ControlLabel} sm={2}>
-              Inquired About:
-            </Col>
-           
-            <Col sm={6}>
-              <FormControl componentClass="textarea" placeholder="textarea" />
-            </Col>
-          </FormGroup>
-
-          
 
         </div>
 

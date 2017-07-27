@@ -9,11 +9,11 @@
 
 
 
-/*.form-control{
-	width: 350px;
+.form-control{
+	width: 250px;
 
 }
-*/
+
 .form-group {
 	display: inline;
 }
@@ -22,7 +22,7 @@
 .btn-email-field {
 	border-radius: 20px;
 	position: absolute;
-	left: 310px;
+	left: 280px;
 	/*top:20px;*/
 
 }
